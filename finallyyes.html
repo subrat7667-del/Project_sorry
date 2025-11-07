@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ye tum thik nahi kar rhe ho</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#fff6fb;
+      --bg2:#ffe9f3;
+      --accent1:#ff6b9a;
+      --accent2:#ff9acb;
+      --text:#7a2b45;
+    }
+
+    body{
+      margin:0;
+      font-family:'Montserrat',sans-serif;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      overflow:hidden;
+    }
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+
+    .card{
+      width:100%;
+      max-width:760px;
+      background:rgba(255,255,255,0.92);
+      padding:22px;
+      border-radius:20px;
+      box-shadow:0 15px 35px rgba(255,110,150,0.15);
+      position:relative;
+      animation:sadDrop 1s ease;
+      overflow:hidden;
+    }
+
+    @keyframes sadDrop{
+      0%{ opacity:0; transform:translateY(-20px); }
+      70%{ opacity:1; transform:translateY(10px); }
+      100%{ transform:translateY(0); }
+    }
+
+    .ribbon{
+      font-family:'Comfortaa';
+      font-size:20px;
+      font-weight:700;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      padding:14px;
+      border-radius:14px;
+      margin-bottom:16px;
+      text-align:center;
+      animation:sadPulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes sadPulse{
+      0%{ opacity:1; transform:scale(1); }
+      50%{ opacity:0.65; transform:scale(0.97); }
+      100%{ opacity:1; transform:scale(1); }
+    }
+
+    .content{
+      background:rgba(255,240,246,0.7);
+      padding:18px;
+      border-radius:14px;
+      text-align:center;
+    }
+
+    .placeholder{
+      width:75%;
+      max-width:350px;
+      border-radius:14px;
+      margin:14px auto;
+      display:block;
+      box-shadow:0 8px 22px rgba(0,0,0,0.08);
+    }
+
+    .para{
+      font-size:18px;
+      font-weight:700;
+      color:var(--text);
+      margin-top:10px;
+    }
+
+    .btn{
+      padding:12px 20px;
+      border-radius:14px;
+      border:0;
+      color:white;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      font-family:'Comfortaa';
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 10px 24px rgba(255,110,150,0.22);
+      margin-top:10px;
+    }
+
+    .btn-area{
+      margin-top:25px;
+      height:150px;
+      position:relative;
+      width:100%;
+    }
+
+    #noBtn{
+      position:absolute;
+      background:white;
+      border:2px solid var(--accent1);
+      color:var(--text);
+      padding:10px 22px;
+      font-family:'Comfortaa';
+      border-radius:14px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.15s;
+      left:40%;
+      top:40%;
+    }
+
+    /* hearts */
+    #hearts{ position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+    .heart{
+      position:absolute;
+      width:18px;
+      height:18px;
+      background:var(--accent1);
+      transform:rotate(45deg);
+      opacity:0.7;
+      border-radius:4px;
+      animation:floatUp 6s linear infinite;
+    }
+    .heart::before,.heart::after{
+      content:"";
+      position:absolute;
+      width:18px;
+      height:18px;
+      background:var(--accent1);
+      border-radius:50%;
+    }
+    .heart::before{ top:-9px; left:0; }
+    .heart::after{ top:0; left:-9px; }
+
+    @keyframes floatUp{
+      0%{ transform:translateY(0) rotate(45deg); opacity:0.4; }
+      50%{ opacity:0.9; }
+      100%{ transform:translateY(-180px) rotate(45deg); opacity:0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="wrap">
+  <div class="card">
+
+    <div class="ribbon">
+      Ye tum thik nhi kar rhe ho, ab maan bhi jao😭
+    </div>
+
+    <div class="content">
+
+      <!-- ✅ IMAGE SLOT (you can replace the src) -->
+      <img src="https://i.ibb.co/W8d5mS7/Github-Sticker-Sticker-Github-sticker-discover-and-share-GIFs.gif" class="placeholder" alt="image" style="width:70%; border-radius:18px; margin:12px auto; display:block; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+
+      <p class="para">Chalo fir ab bolke dikhao No 😁😁😁</p>
+
+      <!-- YES button -->
+      <button class="btn" onclick="location.href='happy.html'">YES</button>
+
+      <!-- Moving NO button -->
+      <div class="btn-area">
+        <button id="noBtn">NO</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* MOBILE + DESKTOP MOVING NO BUTTON */
+const noBtn = document.getElementById("noBtn");
+const area = document.querySelector(".btn-area");
+
+function moveNo(){
+  const maxX = area.clientWidth - noBtn.clientWidth - 10;
+  const maxY = area.clientHeight - noBtn.clientHeight - 10;
+
+  const x = Math.random()*maxX;
+  const y = Math.random()*maxY;
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseenter", moveNo);
+noBtn.addEventListener("touchstart", function(e){
+  e.preventDefault();
+  moveNo();
+});
+
+/* If somehow tapped, block and move again */
+noBtn.addEventListener("click", function(e){
+  e.preventDefault();
+  moveNo();
+});
+
+/* Floating hearts */
+setInterval(()=>{
+  const h = document.createElement("div");
+  h.className="heart";
+  h.style.left = (10 + Math.random()*80) + "vw";
+  h.style.top = "100vh";
+  h.style.animationDuration = (5 + Math.random()*4) + "s";
+  document.getElementById("hearts").appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},600);
+</script>
+
+</body>
+</html>

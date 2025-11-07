@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Happy Happy Happy 😁🥳😍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg1:#fff6fb;
+  --bg2:#ffe9f3;
+  --accent1:#ff6b9a;
+  --accent2:#ff9acb;
+  --text:#7a2b45;
+}
+
+/* Base */
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  overflow:hidden;
+}
+
+.wrap{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+}
+
+.card{
+  width:100%;
+  max-width:760px;
+  background:rgba(255,255,255,0.92);
+  padding:22px;
+  border-radius:20px;
+  box-shadow:0 15px 35px rgba(255,110,150,0.15);
+  position:relative;
+  z-index:5;
+}
+
+.ribbon{
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:white;
+  padding:14px;
+  border-radius:14px;
+  font-family:'Comfortaa';
+  font-size:22px;
+  text-align:center;
+  font-weight:700;
+  margin-bottom:16px;
+  animation:fadeDown .8s ease forwards;
+  opacity:0;
+  transform:translateY(-12px);
+}
+
+@keyframes fadeDown{
+  to{opacity:1; transform:translateY(0);}
+}
+
+.content{
+  background:rgba(255,240,246,0.7);
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+}
+
+.placeholder{
+  width:70%;
+  border-radius:16px;
+  margin:14px auto;
+  display:block;
+  box-shadow:0 8px 22px rgba(0,0,0,0.08);
+}
+
+h2{
+  font-family:'Comfortaa';
+  color:#c4375b;
+  font-size:26px;
+  margin:8px 0;
+  animation:popIn 0.8s ease forwards;
+  opacity:0;
+}
+
+@keyframes popIn{
+  0%{transform:scale(0.5); opacity:0;}
+  80%{transform:scale(1.15);}
+  100%{transform:scale(1); opacity:1;}
+}
+
+.para{
+  font-size:16px;
+  color:#4a2b3a;
+}
+
+/* Button */
+.btn{
+  margin-top:18px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  padding:12px 20px;
+  color:white;
+  border:0;
+  border-radius:14px;
+  font-weight:700;
+  cursor:pointer;
+  font-family:'Comfortaa';
+  box-shadow:0 10px 24px rgba(255,110,150,0.22);
+  transition:.2s;
+}
+.btn:hover{ transform:scale(1.05); }
+
+/* FLOATING HEARTS */
+#hearts{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.heart{
+  position:absolute;
+  width:22px;
+  height:22px;
+  background:var(--accent1);
+  transform:rotate(45deg);
+  border-radius:4px;
+  opacity:0.8;
+  animation:floatUp 6s linear infinite;
+}
+
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:22px;
+  height:22px;
+  background:var(--accent1);
+  border-radius:50%;
+}
+
+.heart::before{ top:-11px; left:0; }
+.heart::after{ left:-11px; top:0; }
+
+@keyframes floatUp{
+  from{ transform:translateY(0) rotate(45deg) scale(0.8); opacity:0.6; }
+  to{ transform:translateY(-120vh) rotate(45deg) scale(1.2); opacity:0; }
+}
+
+/* CONFETTI */
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+}
+
+.piece{
+  position:absolute;
+  width:8px;
+  height:14px;
+  background-color:hsl(calc(360 * var(--i)), 80%, 60%);
+  opacity:0.9;
+  animation:fall 3.5s linear infinite;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0deg);}
+  100%{transform:translateY(110vh) rotate(240deg);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS -->
+<div id="hearts"></div>
+
+<!-- CONFETTI -->
+<div id="confetti"></div>
+
+<div class="wrap">
+  <div class="card">
+
+    <div class="ribbon">Happy Happy Happy Happy Happy 😁🥳😍</div>
+
+    <div class="content">
+      <img src="https://i.ibb.co/nvnSjsS/Peach-And-Goma-Peach-Loves-Goma-GIF-Peach-and-goma-Peach-Goma-GIF.gif" class="placeholder" alt="image" style="width:60%; border-radius:18px; margin:12px auto; display:block; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+
+      <h2>You said YES ❤️</h2>
+
+      <p class="para">
+        You don’t know how happy this makes me.<br>
+        Thank you… truly.<br>
+        I’ll make sure I never make you regret choosing me again.
+      </p>
+
+      <button class="btn" onclick="location.href='index.html'">Back to Start</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* RANDOMIZE HEART POSITIONS */
+for(let i=0;i<30;i++){
+  let h = document.createElement("div");
+  h.className = "heart";
+  h.style.left = (5 + Math.random()*90) + "vw";
+  h.style.top = (80 + Math.random()*20) + "vh";
+  h.style.animationDuration = (5 + Math.random()*4) + "s";
+  document.getElementById("hearts").appendChild(h);
+}
+
+/* RANDOMIZE CONFETTI */
+for(let i=0;i<40;i++){
+  let p = document.createElement("div");
+  p.className = "piece";
+  p.style.setProperty("--i", Math.random());
+  p.style.left = (Math.random()*100) + "vw";
+  p.style.animationDelay = (Math.random()*1.2) + "s";
+  document.getElementById("confetti").appendChild(p);
+}
+</script>
+
+</body>
+</html>

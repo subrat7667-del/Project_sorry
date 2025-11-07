@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Sanjana — Page 2</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#fff6fb;
+      --bg2:#ffe9f3;
+      --accent1:#ff6b9a;
+      --accent2:#ff9acb;
+      --text:#7a2b45;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:'Montserrat',sans-serif;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* Floating hearts container */
+    #hearts{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+
+    .card{
+      width:100%;
+      max-width:760px;
+      background:rgba(255,255,255,0.92);
+      padding:22px;
+      border-radius:20px;
+      box-shadow:0 15px 35px rgba(255,110,150,0.15);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Ribbon Header */
+    .ribbon{
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      padding:14px;
+      border-radius:14px;
+      font-family:'Comfortaa';
+      font-size:20px;
+      text-align:center;
+      font-weight:700;
+      margin-bottom:16px;
+      animation:fadeDown .8s ease forwards;
+      opacity:0;
+      transform:translateY(-12px);
+    }
+    @keyframes fadeDown{
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .content{
+      background:rgba(255,240,246,0.7);
+      padding:18px;
+      border-radius:14px;
+      text-align:center;
+      position:relative;
+      z-index:5;
+    }
+
+    .placeholder{
+      width:100%;
+      border-radius:14px;
+      margin:14px 0;
+      box-shadow:0 8px 22px rgba(0,0,0,0.08);
+    }
+
+    /* Typewriter */
+    .typewriter{
+      font-family:'Comfortaa';
+      font-size:17px;
+      white-space:pre-line;
+      overflow:hidden;
+      color:#5b2c44;
+      line-height:1.5;
+      min-height:260px;
+    }
+
+    /* Button */
+    .btn{
+      margin-top:18px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      padding:12px 20px;
+      color:white;
+      border:0;
+      border-radius:14px;
+      font-weight:700;
+      cursor:pointer;
+      font-family:'Comfortaa';
+      box-shadow:0 10px 24px rgba(255,110,150,0.22);
+      transition:.2s;
+    }
+    .btn:hover{ transform:scale(1.05); }
+
+    /* Heart shapes */
+    .heart{
+      position:absolute;
+      width:18px;
+      height:18px;
+      background:var(--accent1);
+      transform:rotate(45deg);
+      opacity:0.7;
+      border-radius:4px;
+      animation:floatUp 6s linear infinite;
+    }
+    .heart::before,
+    .heart::after{
+      content:"";
+      position:absolute;
+      width:18px;
+      height:18px;
+      background:var(--accent1);
+      border-radius:50%;
+    }
+    .heart::before{ top:-9px; left:0; }
+    .heart::after{ left:-9px; top:0; }
+
+    @keyframes floatUp{
+      0%{ transform:translateY(0) scale(0.8) rotate(45deg); opacity:0.5; }
+      50%{ opacity:0.9; }
+      100%{ transform:translateY(-180px) scale(1) rotate(45deg); opacity:0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- floating hearts -->
+<div id="hearts"></div>
+
+<div class="wrap">
+  <div class="card">
+
+    <div class="ribbon">From my heart…</div>
+
+    <div class="content">
+      <img src="https://i.ibb.co/JWNH0J96/download.jpg" class="placeholder" alt="image" style="width:60%; border-radius:18px; margin:12px auto; display:block; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+>
+
+      <div class="typewriter" id="tw2">
+I know I was not good to you in the past.
+I did not talk to you when you needed me, and no matter what the reasons were, it was my fault.
+I still feel guilty that I made you sad on your birthday.
+I did not give my best to make things right or to make you stay.
+
+But please know this:
+You have always mattered to me.
+You never deserved the hurt I caused.
+I was not mature enough back then to treasure someone like you.
+I missed you for those five years, and I still do.
+You are the reason I ever felt love in my life.
+You gave me so much happiness, and I failed to return the same.
+I am really lucky that you were part of my life.
+
+I am truly sorry for the pain I caused you
+even in your bday I made you feel hurt or alone.
+You deserved better from me.
+      </div>
+
+      <button class="btn" onclick="location.href='page3.html'">Next</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* Typewriter */
+(function(){
+  const el = document.getElementById('tw2');
+  const text = el.textContent.trim();
+  el.textContent = '';
+  let i=0;
+  function step(){
+    if(i <= text.length){
+      el.textContent = text.slice(0,i);
+      i++;
+      setTimeout(step, 32 + (i % 6)*2);
+    }
+  }
+  step();
+})();
+
+/* Floating hearts */
+const hearts = document.getElementById("hearts");
+setInterval(()=>{
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.style.left = (10 + Math.random()*80) + "vw";
+  h.style.top = "100vh";
+  h.style.animationDuration = (5 + Math.random()*4) + "s";
+  hearts.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}, 600);
+</script>
+
+</body>
+</html>

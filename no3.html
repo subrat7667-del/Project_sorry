@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tumne fir no pe click kiya 🥺🥺</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#fff6fb;
+      --bg2:#ffe9f3;
+      --accent1:#ff6b9a;
+      --accent2:#ff9acb;
+      --text:#7a2b45;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:'Montserrat',sans-serif;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* HEART BACKGROUND */
+    #hearts{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+
+    .card{
+      width:100%;
+      max-width:760px;
+      background:rgba(255,255,255,0.92);
+      padding:22px;
+      border-radius:20px;
+      box-shadow:0 15px 35px rgba(255,110,150,0.15);
+      position:relative;
+      overflow:hidden;
+
+      /* ✅ FURIOUS SHAKE (non-stop) */
+      animation:shakeFurious 0.45s infinite;
+    }
+
+    /* BIG furious shaking */
+    @keyframes shakeFurious{
+      0%   { transform:translate(0,0) rotate(0deg); }
+      10%  { transform:translate(-18px,-4px) rotate(-3deg); }
+      20%  { transform:translate(22px,6px) rotate(3deg); }
+      30%  { transform:translate(-26px,4px) rotate(-4deg); }
+      40%  { transform:translate(20px,-6px) rotate(4deg); }
+      50%  { transform:translate(-18px,6px) rotate(-3deg); }
+      60%  { transform:translate(16px,-4px) rotate(3deg); }
+      70%  { transform:translate(-22px,4px) rotate(-4deg); }
+      80%  { transform:translate(18px,-6px) rotate(4deg); }
+      90%  { transform:translate(-14px,4px) rotate(-2deg); }
+      100% { transform:translate(0,0) rotate(0deg); }
+    }
+
+    /* RIBBON HEADER */
+    .ribbon{
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      padding:14px;
+      border-radius:14px;
+      font-family:'Comfortaa';
+      font-size:20px;
+      text-align:center;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+
+    .content{
+      background:rgba(255,240,246,0.7);
+      padding:18px;
+      border-radius:14px;
+      text-align:center;
+      position:relative;
+      z-index:5;
+    }
+
+    img.placeholder{
+      width:60%;
+      border-radius:16px;
+      margin:12px auto;
+      display:block;
+      box-shadow:0 8px 22px rgba(0,0,0,0.08);
+    }
+
+    .para{
+      font-family:'Comfortaa';
+      font-size:17px;
+      color:#5b2c44;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .btns{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .btn{
+      padding:12px 20px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      border:0;
+      border-radius:14px;
+      font-weight:700;
+      cursor:pointer;
+      font-family:'Comfortaa';
+      box-shadow:0 10px 24px rgba(255,110,150,0.22);
+      transition:0.2s;
+    }
+    .btn:hover{ transform:scale(1.05); }
+
+    .btn-secondary{
+      background:white;
+      color:var(--text);
+      border:2px solid var(--accent1);
+    }
+
+    /* PERFECT HEARTS */
+    .heart{
+      position:absolute;
+      width:18px;
+      height:18px;
+      background:var(--accent1);
+      transform:rotate(45deg);
+      opacity:0.7;
+      border-radius:4px;
+      animation:floatUp 6s linear infinite;
+    }
+    .heart::before,
+    .heart::after{
+      content:"";
+      position:absolute;
+      width:18px;
+      height:18px;
+      background:var(--accent1);
+      border-radius:50%;
+    }
+    .heart::before{ top:-9px; left:0; }
+    .heart::after{ left:-9px; top:0; }
+
+    @keyframes floatUp{
+      0%{ transform:translateY(0) scale(0.8) rotate(45deg); opacity:0.5; }
+      50%{ opacity:0.9; }
+      100%{ transform:translateY(-180px) scale(1) rotate(45deg); opacity:0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="wrap">
+  <div class="card">
+
+    <div class="ribbon">Tumne fir no pe click kiya 😡😡</div>
+
+    <div class="content">
+
+      <!-- ✅ IMAGE SLOT -->
+      <img src="https://i.ibb.co/1tP6wRRz/Spankat-Sticker-Spankat-GIF.gif" class="placeholder" alt="image" style="width:70%; border-radius:18px; margin:12px auto; display:block; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+
+
+      <p class="para">Abb bahot ho gya, han bolo 😤</p>
+
+      <div class="btns">
+        <button id="yes" class="btn" style="transform:scale(1.40);" onclick="location.href='happy.html'">YES</button>
+        <button id="no" class="btn-secondary" style="transform:scale(0.60);" onclick="location.href='no4.html'">NO</button>
+      </div>
+
+      <p style="font-size:13px;color:#8b7a86;margin-top:6px;">Try again</p>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* YES BUTTON PULSE */
+const y = document.getElementById("yes");
+if(y){
+  y.animate(
+    [
+      { transform: "scale(1.40)" },
+      { transform: "scale(1.44)" },
+      { transform: "scale(1.40)" }
+    ],
+    { duration: 1500, iterations: Infinity }
+  );
+}
+
+/* FLOATING HEARTS */
+setInterval(()=>{
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.style.left = (10 + Math.random()*80) + "vw";
+  h.style.top = "100vh";
+  h.style.animationDuration = (5 + Math.random()*4) + "s";
+  document.getElementById("hearts").appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+}, 600);
+</script>
+
+</body>
+</html>
